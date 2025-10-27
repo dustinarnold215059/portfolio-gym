@@ -151,7 +151,7 @@ const Contact = () => {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-hidden max-w-full">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-primary to-primary-700 text-white py-20">
         <div className="container-custom">
@@ -210,7 +210,7 @@ const Contact = () => {
       {/* Contact Form & Map Section */}
       <section className="py-8 md:py-16 lg:py-24">
         <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
             {/* Contact Form */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -363,16 +363,16 @@ const Contact = () => {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="space-y-8"
+              className="space-y-4 md:space-y-6 lg:space-y-8"
             >
               {/* Map Placeholder */}
               <div className="card overflow-hidden">
-                <div className="bg-gradient-to-br from-gray-200 to-gray-300 h-80 flex items-center justify-center relative">
+                <div className="bg-gradient-to-br from-gray-200 to-gray-300 h-64 md:h-80 flex items-center justify-center relative">
                   <iframe
                     title="IronCore Fitness Location"
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2948.123456789!2d-83.352634!3d42.368889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDLCsDIyJzA4LjAiTiA4M8KwMjEnMDkuNSJX!5e0!3m2!1sen!2sus!4v1234567890"
                     width="100%"
-                    height="320"
+                    height="100%"
                     style={{ border: 0 }}
                     allowFullScreen=""
                     loading="lazy"
@@ -383,19 +383,19 @@ const Contact = () => {
               </div>
 
               {/* Social Media Links */}
-              <div className="card p-6">
-                <h3 className="text-xl font-heading font-bold mb-4">Follow Us</h3>
-                <p className="text-gray-600 mb-4">
+              <div className="card p-4 sm:p-6">
+                <h3 className="text-lg sm:text-xl font-heading font-bold mb-3 sm:mb-4">Follow Us</h3>
+                <p className="text-gray-600 mb-3 sm:mb-4 text-sm sm:text-base">
                   Stay connected and get fitness tips, class updates, and special offers!
                 </p>
-                <div className="flex gap-4">
+                <div className="flex flex-wrap gap-3 sm:gap-4">
                   {socialLinks.map((social) => (
                     <a
                       key={social.name}
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`text-gray-700 ${social.color} transition-colors text-lg font-semibold`}
+                      className={`text-gray-700 ${social.color} transition-colors text-sm sm:text-base font-semibold`}
                       aria-label={social.name}
                     >
                       {social.name}
