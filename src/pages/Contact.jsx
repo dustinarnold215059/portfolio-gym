@@ -172,7 +172,7 @@ const Contact = () => {
       </section>
 
       {/* Contact Info Cards */}
-      <section className="section-padding bg-gray-50">
+      <section className="py-8 md:py-16 lg:py-24 bg-gray-50">
         <div className="container-custom">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             {contactInfo.map((info, index) => (
@@ -208,7 +208,7 @@ const Contact = () => {
       </section>
 
       {/* Contact Form & Map Section */}
-      <section className="section-padding">
+      <section className="py-8 md:py-16 lg:py-24">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Form */}
@@ -405,26 +405,26 @@ const Contact = () => {
               </div>
 
               {/* Quick Info */}
-              <div className="card p-6 bg-gradient-to-br from-primary to-primary-700 text-white">
-                <h3 className="text-xl font-heading font-bold mb-4">Ready to Start?</h3>
-                <p className="mb-4">
+              <div className="card p-4 sm:p-6 bg-gradient-to-br from-primary to-primary-700 text-white">
+                <h3 className="text-lg sm:text-xl font-heading font-bold mb-3 sm:mb-4">Ready to Start?</h3>
+                <p className="mb-3 sm:mb-4 text-sm sm:text-base">
                   Join over 5,000 members who have transformed their lives at IronCore Fitness!
                 </p>
-                <ul className="space-y-2 mb-6">
-                  <li className="flex items-center">
-                    <CheckCircleIcon className="w-5 h-5 mr-2 text-accent" />
+                <ul className="space-y-2 mb-4 sm:mb-6">
+                  <li className="flex items-center text-sm sm:text-base">
+                    <CheckCircleIcon className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-accent flex-shrink-0" />
                     <span>No signup fees</span>
                   </li>
-                  <li className="flex items-center">
-                    <CheckCircleIcon className="w-5 h-5 mr-2 text-accent" />
+                  <li className="flex items-center text-sm sm:text-base">
+                    <CheckCircleIcon className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-accent flex-shrink-0" />
                     <span>Cancel anytime</span>
                   </li>
-                  <li className="flex items-center">
-                    <CheckCircleIcon className="w-5 h-5 mr-2 text-accent" />
+                  <li className="flex items-center text-sm sm:text-base">
+                    <CheckCircleIcon className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-accent flex-shrink-0" />
                     <span>Free 7-day trial</span>
                   </li>
                 </ul>
-                <a href="/memberships" className="btn bg-white text-primary hover:bg-gray-100 w-full text-center">
+                <a href="/memberships" className="btn bg-white text-primary hover:bg-gray-100 w-full text-center text-sm sm:text-base">
                   View Memberships
                 </a>
               </div>
@@ -434,7 +434,7 @@ const Contact = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="section-padding bg-gray-50">
+      <section className="py-8 md:py-16 lg:py-24 bg-gray-50">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
