@@ -33,21 +33,21 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
+      className={`fixed w-full z-50 transition-all duration-300 overflow-hidden ${
         isScrolled
           ? 'bg-white shadow-lg py-4'
           : 'bg-transparent py-6'
       }`}
     >
-      <div className="container-custom max-w-full overflow-hidden">
-        <div className="flex justify-between items-center gap-2">
+      <div className="max-w-[100vw] mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center gap-1.5 sm:gap-2">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-1.5 sm:space-x-3 flex-shrink min-w-0 max-w-[70%] sm:max-w-none">
+          <Link to="/" className="flex items-center gap-1.5 sm:gap-3 flex-shrink min-w-0 max-w-[65%] sm:max-w-none">
             <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center flex-shrink-0">
               <span className="text-white font-bold text-sm sm:text-base md:text-xl">IC</span>
             </div>
             <div className="min-w-0 flex-shrink overflow-hidden">
-              <h1 className={`font-heading text-sm sm:text-lg md:text-xl lg:text-2xl truncate ${isScrolled ? 'text-gray-900' : 'text-white'}`}>
+              <h1 className={`font-heading text-xs sm:text-lg md:text-xl lg:text-2xl truncate leading-tight ${isScrolled ? 'text-gray-900' : 'text-white'}`}>
                 IronCore Fitness
               </h1>
               <p className={`text-xs hidden md:block ${isScrolled ? 'text-gray-600' : 'text-gray-200'}`}>
