@@ -9,6 +9,10 @@ import {
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <footer className="bg-gray-900 text-white">
       {/* Main Footer Content */}
@@ -50,32 +54,32 @@ const Footer = () => {
             <h3 className="font-heading text-lg mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/memberships" className="text-gray-400 hover:text-accent transition-colors">
+                <Link to="/memberships" onClick={scrollToTop} className="text-gray-400 hover:text-accent transition-colors">
                   Memberships
                 </Link>
               </li>
               <li>
-                <Link to="/classes" className="text-gray-400 hover:text-accent transition-colors">
+                <Link to="/classes" onClick={scrollToTop} className="text-gray-400 hover:text-accent transition-colors">
                   Classes
                 </Link>
               </li>
               <li>
-                <Link to="/trainers" className="text-gray-400 hover:text-accent transition-colors">
+                <Link to="/trainers" onClick={scrollToTop} className="text-gray-400 hover:text-accent transition-colors">
                   Personal Trainers
                 </Link>
               </li>
               <li>
-                <Link to="/facilities" className="text-gray-400 hover:text-accent transition-colors">
+                <Link to="/facilities" onClick={scrollToTop} className="text-gray-400 hover:text-accent transition-colors">
                   Our Facilities
                 </Link>
               </li>
               <li>
-                <Link to="/blog" className="text-gray-400 hover:text-accent transition-colors">
+                <Link to="/blog" onClick={scrollToTop} className="text-gray-400 hover:text-accent transition-colors">
                   Blog
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-gray-400 hover:text-accent transition-colors">
+                <Link to="/contact" onClick={scrollToTop} className="text-gray-400 hover:text-accent transition-colors">
                   Contact Us
                 </Link>
               </li>
@@ -134,13 +138,13 @@ const Footer = () => {
               &copy; {currentYear} IronCore Fitness. All rights reserved.
             </p>
             <div className="flex space-x-6 text-sm">
-              <Link to="/privacy" className="text-gray-400 hover:text-accent transition-colors">
+              <Link to="/privacy" onClick={scrollToTop} className="text-gray-400 hover:text-accent transition-colors">
                 Privacy Policy
               </Link>
-              <Link to="/terms" className="text-gray-400 hover:text-accent transition-colors">
+              <Link to="/terms" onClick={scrollToTop} className="text-gray-400 hover:text-accent transition-colors">
                 Terms of Service
               </Link>
-              <Link to="/contact" className="text-gray-400 hover:text-accent transition-colors">
+              <Link to="/contact" onClick={scrollToTop} className="text-gray-400 hover:text-accent transition-colors">
                 Contact
               </Link>
             </div>
