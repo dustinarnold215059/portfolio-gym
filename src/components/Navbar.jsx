@@ -42,12 +42,12 @@ const Navbar = () => {
       <div className="container-custom max-w-full overflow-hidden">
         <div className="flex justify-between items-center gap-2">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-1.5 sm:space-x-3 flex-shrink min-w-0">
-            <div className="w-9 h-9 sm:w-12 sm:h-12 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center flex-shrink-0">
-              <span className="text-white font-bold text-base sm:text-xl">IC</span>
+          <Link to="/" className="flex items-center space-x-1.5 sm:space-x-3 flex-shrink min-w-0 max-w-[70%] sm:max-w-none">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center flex-shrink-0">
+              <span className="text-white font-bold text-sm sm:text-base md:text-xl">IC</span>
             </div>
-            <div className="min-w-0 flex-shrink">
-              <h1 className={`font-heading text-base sm:text-xl md:text-2xl truncate whitespace-nowrap ${isScrolled ? 'text-gray-900' : 'text-white'}`}>
+            <div className="min-w-0 flex-shrink overflow-hidden">
+              <h1 className={`font-heading text-sm sm:text-lg md:text-xl lg:text-2xl truncate ${isScrolled ? 'text-gray-900' : 'text-white'}`}>
                 IronCore Fitness
               </h1>
               <p className={`text-xs hidden md:block ${isScrolled ? 'text-gray-600' : 'text-gray-200'}`}>
@@ -91,15 +91,15 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className={`lg:hidden p-1 sm:p-2 rounded-lg flex-shrink-0 ${
+            className={`lg:hidden p-1.5 sm:p-2 rounded-lg flex-shrink-0 ${
               isScrolled ? 'text-gray-900' : 'text-white'
             }`}
             aria-label="Toggle menu"
           >
             {isOpen ? (
-              <XMarkIcon className="h-7 w-7 sm:h-8 sm:w-8" />
+              <XMarkIcon className="h-6 w-6 sm:h-7 sm:w-7" />
             ) : (
-              <Bars3Icon className="h-7 w-7 sm:h-8 sm:w-8" />
+              <Bars3Icon className="h-6 w-6 sm:h-7 sm:w-7" />
             )}
           </button>
         </div>
