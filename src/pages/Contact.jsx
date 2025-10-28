@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
   PhoneIcon,
@@ -18,6 +19,7 @@ const Contact = () => {
   });
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const validateForm = () => {
     const newErrors = {};
@@ -71,21 +73,25 @@ const Contact = () => {
     e.preventDefault();
 
     if (validateForm()) {
-      // Simulate form submission
-      console.log('Form submitted:', formData);
-      setSubmitted(true);
+      setIsSubmitting(true);
 
-      // Reset form after 3 seconds
+      // Simulate API call
       setTimeout(() => {
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          inquiryType: '',
-          message: ''
-        });
-        setSubmitted(false);
-      }, 5000);
+        setSubmitted(true);
+        setIsSubmitting(false);
+
+        // Reset form after 5 seconds
+        setTimeout(() => {
+          setFormData({
+            name: '',
+            email: '',
+            phone: '',
+            inquiryType: '',
+            message: ''
+          });
+          setSubmitted(false);
+        }, 5000);
+      }, 1000);
     }
   };
 
@@ -350,9 +356,21 @@ const Contact = () => {
 
                   <button
                     type="submit"
-                    className="btn btn-primary w-full text-lg py-4"
+                    disabled={isSubmitting}
+                    className={`w-full text-lg py-4 transition-all duration-300 ${
+                      isSubmitting
+                        ? 'bg-gray-400 cursor-not-allowed rounded-lg text-white font-semibold'
+                        : 'btn btn-primary'
+                    }`}
                   >
-                    Send Message
+                    {isSubmitting ? (
+                      <div className="flex items-center justify-center">
+                        <div className="animate-spin rounded-full h-5 w-5 border-2 border-white border-t-transparent mr-3"></div>
+                        Sending...
+                      </div>
+                    ) : (
+                      'Send Message'
+                    )}
                   </button>
                 </form>
               )}
@@ -424,9 +442,9 @@ const Contact = () => {
                     <span>Free 7-day trial</span>
                   </li>
                 </ul>
-                <a href="/memberships" className="btn bg-white text-primary hover:bg-gray-100 w-full text-center text-sm sm:text-base">
+                <Link to="/memberships" className="btn bg-white text-primary hover:bg-gray-100 w-full text-center text-sm sm:text-base">
                   View Memberships
-                </a>
+                </Link>
               </div>
             </motion.div>
           </div>
