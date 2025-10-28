@@ -19,11 +19,11 @@ const Navbar = () => {
 
   useEffect(() => {
     setIsOpen(false);
-    window.scrollTo(0, 0);
   }, [location]);
 
   const handleLinkClick = () => {
     setIsOpen(false);
+    window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
   const navLinks = [
@@ -47,7 +47,7 @@ const Navbar = () => {
       <div className="max-w-[100vw] mx-auto px-3 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center gap-1.5 sm:gap-2">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-1.5 sm:gap-3 flex-shrink min-w-0 max-w-[65%] sm:max-w-none">
+          <Link to="/" onClick={handleLinkClick} className="flex items-center gap-1.5 sm:gap-3 flex-shrink min-w-0 max-w-[65%] sm:max-w-none">
             <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center flex-shrink-0">
               <span className="text-white font-bold text-sm sm:text-base md:text-xl">IC</span>
             </div>
@@ -67,6 +67,7 @@ const Navbar = () => {
               <Link
                 key={link.path}
                 to={link.path}
+                onClick={handleLinkClick}
                 className={`font-semibold transition-colors relative group ${
                   location.pathname === link.path
                     ? isScrolled
@@ -87,6 +88,7 @@ const Navbar = () => {
             ))}
             <Link
               to="/contact"
+              onClick={handleLinkClick}
               className="btn btn-primary"
             >
               Join Now
