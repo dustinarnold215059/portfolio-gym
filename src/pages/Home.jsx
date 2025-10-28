@@ -246,7 +246,7 @@ const Home = () => {
           </div>
 
           <div className="text-center mt-12">
-            <Link to="/success-stories" className="btn btn-primary">
+            <Link to="/contact" className="btn btn-primary">
               View All Success Stories
               <ArrowRightIcon className="w-5 h-5 inline ml-2" />
             </Link>

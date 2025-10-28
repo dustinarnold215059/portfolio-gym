@@ -4,6 +4,17 @@ import { CalendarIcon, ClockIcon, UserIcon } from '@heroicons/react/24/outline';
 
 const Blog = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [email, setEmail] = useState('');
+  const [subscribeStatus, setSubscribeStatus] = useState('');
+
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+    if (email) {
+      setSubscribeStatus('success');
+      setEmail('');
+      setTimeout(() => setSubscribeStatus(''), 3000);
+    }
+  };
 
   const categories = ['All', 'Workouts', 'Nutrition', 'Recovery', 'Mindset', 'Training Tips'];
 
@@ -293,10 +304,12 @@ const Blog = () => {
             <p className="text-xl text-gray-300 mb-8">
               Get the latest fitness tips, workout ideas, and nutrition advice delivered to your inbox weekly
             </p>
-            <form className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
+            <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
               <input
                 type="email"
                 placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="flex-1 px-6 py-4 rounded-lg text-gray-900 focus:ring-2 focus:ring-accent outline-none"
                 required
               />
@@ -307,9 +320,20 @@ const Blog = () => {
                 Subscribe
               </button>
             </form>
-            <p className="text-sm text-gray-400 mt-4">
-              Join 5,000+ fitness enthusiasts. Unsubscribe anytime.
-            </p>
+            {subscribeStatus === 'success' && (
+              <motion.p
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="text-accent text-sm mt-4 font-semibold"
+              >
+                ✓ Successfully subscribed! Check your email for confirmation.
+              </motion.p>
+            )}
+            {!subscribeStatus && (
+              <p className="text-sm text-gray-400 mt-4">
+                Join 5,000+ fitness enthusiasts. Unsubscribe anytime.
+              </p>
+            )}
           </motion.div>
         </div>
       </section>

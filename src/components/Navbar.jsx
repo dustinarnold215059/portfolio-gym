@@ -19,10 +19,11 @@ const Navbar = () => {
 
   useEffect(() => {
     setIsOpen(false);
+    window.scrollTo(0, 0);
   }, [location]);
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  const handleLinkClick = () => {
+    setIsOpen(false);
   };
 
   const navLinks = [
@@ -66,7 +67,6 @@ const Navbar = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                onClick={scrollToTop}
                 className={`font-semibold transition-colors relative group ${
                   location.pathname === link.path
                     ? isScrolled
@@ -87,7 +87,6 @@ const Navbar = () => {
             ))}
             <Link
               to="/contact"
-              onClick={scrollToTop}
               className="btn btn-primary"
             >
               Join Now
@@ -124,7 +123,7 @@ const Navbar = () => {
                   <Link
                     key={link.path}
                     to={link.path}
-                    onClick={scrollToTop}
+                    onClick={handleLinkClick}
                     className={`font-semibold transition-colors ${
                       location.pathname === link.path
                         ? 'text-primary'
@@ -136,7 +135,7 @@ const Navbar = () => {
                 ))}
                 <Link
                   to="/contact"
-                  onClick={scrollToTop}
+                  onClick={handleLinkClick}
                   className="btn btn-primary w-full text-center"
                 >
                   Join Now
